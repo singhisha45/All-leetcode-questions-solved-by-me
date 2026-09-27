@@ -25,7 +25,7 @@ public:
      
         ptr1 -> next = ptr1 -> next -> next;
         ptr -> next = nullptr;
-        
+        //hello
         return head;
     }
 };
