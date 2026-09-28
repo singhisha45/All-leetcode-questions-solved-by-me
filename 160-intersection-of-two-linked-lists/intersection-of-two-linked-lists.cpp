@@ -18,6 +18,7 @@ public:
             mpp[temp] = 1;
             temp = temp -> next;
         }
+        //hereis
         temp = headB;
         while(temp !=NULL){
             if(mpp.find(temp) != mpp.end()){
