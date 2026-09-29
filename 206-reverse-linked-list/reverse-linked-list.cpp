@@ -8,6 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+//update
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
