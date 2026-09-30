@@ -10,36 +10,29 @@
  */
 class Solution {
 public:
-
-    ListNode* convert(vector<int> arr){
-        if (arr.empty()) return nullptr;
-        
-        ListNode* head = new ListNode(arr[0]);
-        ListNode* temp = head;
-        for(int i = 1; i< arr.size(); i++){
-            ListNode* a = new ListNode(arr[i]);
-            temp -> next = a;
-            temp = temp -> next;
-        }
-        return head;
-    }
-
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        vector<int> arr;
-        ListNode *temp1 = list1;
-        ListNode *temp2 = list2;
+        ListNode* t1 = list1;
+        ListNode* t2 = list2;
 
-        while(temp1 != NULL){
-            arr.push_back(temp1 -> val);
-            temp1 = temp1 -> next;
+        ListNode* dNode= new ListNode(-1);
+        ListNode* temp = dNode;
+
+        while(t1 != NULL && t2 !=NULL){
+            if(t1 -> val < t2 -> val){
+                temp -> next = t1;
+                temp = t1;
+                t1 = t1 -> next;
+            }
+            else{
+                temp -> next = t2;
+                temp = t2;
+                t2 = t2 -> next;
+            }
         }
 
-        while(temp2 != NULL){
-            arr.push_back(temp2 -> val);
-            temp2 = temp2 -> next;
-        }
+        if(t1) temp -> next = t1;
+        else temp -> next = t2;
 
-        sort(arr.begin(), arr.end());
-        return convert(arr);
+        return dNode -> next;
     }
 };
